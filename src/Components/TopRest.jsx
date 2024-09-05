@@ -1,17 +1,16 @@
-import React from "react";
 import RestaurantCard from "./RestaurantCard";
-
-function RestaurantList({ RestData }) {
-  const title = RestData[2]?.card?.card?.title || "";
+const TopRest = ({ RestData }) => {
   const gridList =
-    RestData[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
-  console.log(RestData);
+    RestData?.card?.gridElements?.infoWithStyle?.restaurants || [];
+  const title = RestData?.card?.header?.title;
+  // console.log(gridList);
+  //   console.log(RestData);
   return (
     <>
-      <h1 className="dark:text-white text-2xl font-semibold py-2">
+      <h1 className="dark:text-white text-2xl font-semibold">
         {title ? title : "Loading..."}
       </h1>
-      <div className="flex flex-wrap h-56 gap-10 justify-center">
+      <div className="my-2 w-full h-72 flex gap-10  items-center overflow-x-scroll hide-scrollbar">
         {gridList.length > 0
           ? gridList.map((items) => (
               <RestaurantCard
@@ -26,6 +25,5 @@ function RestaurantList({ RestData }) {
       </div>
     </>
   );
-}
-
-export default RestaurantList;
+};
+export default TopRest;
