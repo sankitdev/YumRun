@@ -7,13 +7,13 @@ function Banner({ BannerData }) {
     BannerData?.data?.cards[0]?.card?.card?.imageGridCards?.info || [];
   return (
     <>
-      <h1 className="dark:text-white text-2xl font-semibold">{title}</h1>
-      <div className="my-2 w-full h-48 flex gap-10 items-center overflow-x-scroll hide-scrollbar">
+      <h1 className="dark:text-white text-2xl my-4 font-semibold">{title}</h1>
+      <div className="my-2 w-full h-48 flex gap-10 items-center overflow-x-auto hide-scrollbar">
         {gridList.length > 0
           ? gridList.map((items) => (
               <img
                 key={items.id}
-                className="h-5/6 rounded-full flex-shrink-0"
+                className="h-36 w-36 rounded-full object-cover flex-shrink-0 hover:scale-105 transition-all"
                 src={`${IMG_URL}${items.imageId}`}
                 alt={items.description}
               />
