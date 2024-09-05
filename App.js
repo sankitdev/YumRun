@@ -3,12 +3,12 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import DarkModeToggle from "./src/Components/ToggleDark";
 import Body from "./src/Components/Body";
-import Header from "./src/Components/Header";
+import NavBar from "./src/Components/NavBar";
 
 const App = () => {
   return (
-    <div className="w-full h-screen dark:bg-black">
-      <Header />
+    <div className="min-h-full bg-slate-300 dark:bg-black">
+      <NavBar />
       <Body />
       <DarkModeToggle />
     </div>
