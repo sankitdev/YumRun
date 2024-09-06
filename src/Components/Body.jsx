@@ -2,7 +2,7 @@ import Banner from "./Banner";
 import { URL_HOME } from "../../constant";
 import axios from "axios";
 import { useEffect, useState } from "react";
-import RestSection from "./RestSection";
+import RestSection from "./RestaurantSection";
 import Shimmer from "./Shimmer";
 
 const Body = () => {
@@ -10,8 +10,10 @@ const Body = () => {
   useEffect(() => {
     axios.get(URL_HOME).then((response) => {
       setData(response.data);
+      console.log(response.data);
     });
   }, []);
+  console.log("outside");
   return (
     <div className="px-10 h-full">
       {data ? (

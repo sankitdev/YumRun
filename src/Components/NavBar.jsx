@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 const NavBar = () => {
   return (
     <div className="dark:text-white flex justify-between py-2 px-4 border-2 border-blue-50 h-16 items-center">
@@ -7,8 +8,13 @@ const NavBar = () => {
         <i className="text-md">^</i>
       </h1>
       <ul className="flex gap-4">
-        <li>Home</li>
-        <li>Search</li>
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+
+        <li>
+          <Link to="/search">Search</Link>
+        </li>
         <li>Cart</li>
       </ul>
     </div>
