@@ -1,5 +1,5 @@
 import React from "react";
-import { IMG_URL } from "../../constant";
+import { IMG_URL } from "../constant";
 
 function Banner({ BannerData }) {
   const title = BannerData?.data?.cards[0]?.card?.card?.header?.title;

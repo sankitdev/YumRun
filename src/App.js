@@ -12,7 +12,7 @@ import { Outlet } from "react-router-dom";
 import RestaurantMenu from "./Components/RestaurantMenu";
 const App = () => {
   return (
-    <div className="w-full min-h-screen bg-slate-100 dark:bg-black ">
+    <div className="w-full min-h-screen bg-white dark:bg-black ">
       <NavBar />
       <Outlet />
       <DarkModeToggle />

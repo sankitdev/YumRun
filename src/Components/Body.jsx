@@ -1,5 +1,5 @@
 import Banner from "./Banner";
-import { URL_HOME } from "../../constant";
+import { URL_HOME } from "../constant";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import RestSection from "./RestaurantSection";
