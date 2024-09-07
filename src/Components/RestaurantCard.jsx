@@ -1,5 +1,5 @@
 import React from "react";
-import { REST_URL } from "../../constant";
+import { REST_URL } from "../constant";
 
 function RestaurantCard({ image, cuisines, locality, name }) {
   return (
