@@ -1,15 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
-import DarkModeToggle from "./src/Components/ToggleDark";
-import Body from "./src/Components/Body";
-import NavBar from "./src/Components/NavBar";
-import Footer from "./src/Components/Footer";
+import DarkModeToggle from "./Components/ToggleDark";
+import Body from "./Components/Body";
+import NavBar from "./Components/NavBar";
+import Footer from "./Components/Footer";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Search from "./src/Components/Search";
-import Error from "./src/Components/Error";
+import Search from "./Components/Search";
+import Error from "./Components/Error";
 import { Outlet } from "react-router-dom";
-import RestaurantMenu from "./src/Components/RestaurantMenu";
+import RestaurantMenu from "./Components/RestaurantMenu";
 const App = () => {
   return (
     <div className="w-full min-h-screen bg-slate-100 dark:bg-black ">
