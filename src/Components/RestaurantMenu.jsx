@@ -7,14 +7,23 @@ const RestaurantMenu = () => {
   const[menu, setMenu] = useState(null)
   const { id } = useParams();
   useEffect(() => {
-    axios.get(`${REST_MENU_URL}${id}`).then((response) => {
-      setMenu(response.data)
-      console.log(response.data);
-    });
-  }, []);
+   const fetchData =  async ()=>{
+      try {
+        const response = await axios.get(`${REST_MENU_URL}${id}`)
+        setMenu(response.data)
+      } catch (error) {
+        console.error('Error fetching menu data:', error)
+      }
+    }
+    fetchData()
+  }, [id]);
+  const {data} = menu || {}
+  const {cards} = data || {}
+  const restaurantInfo = cards?.[0]?.card?.card || {}
+  const menuItems = cards?.[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards || {}
   return (
     <div className="dark:text-white px-10 min-h-full my-4 flex flex-col items-center ">
-      <h1 className="text-2xl font-bold py-4 ">{menu?.data?.cards[0]?.card?.card?.text}</h1>
+      <h1 className="text-2xl font-bold py-4 ">{restaurantInfo.text}</h1>
       <div className="w-full md:w-1/2 lg:w-1/2 p-2 rounded-md shadow-md h-40 red">
       <p><span>⭐4.5 (58K+ ratings)</span>•<span>₹350 for two</span></p>
       <p>Burgers, American</p>
@@ -24,7 +33,7 @@ const RestaurantMenu = () => {
       Order above 149 for discounted delivery fee</p>
       </div>
       <p className="text-center">MENU</p>
-    <MenuCard items={menu?.data?.cards[5]?.groupedCard?.cardGroupMap?.REGULAR?.cards}/>
+    <MenuCard items={menuItems}/>
     </div>
   );
 };
