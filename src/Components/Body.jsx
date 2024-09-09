@@ -8,14 +8,18 @@ import Shimmer from "./Shimmer";
 const Body = () => {
   const [data, setData] = useState(null);
   useEffect(() => {
-    axios.get(URL_HOME).then((response) => {
-      setData(response.data);
-      console.log(response.data);
-    });
+    const fetchData = async () => {
+      try {
+        const response = await axios(URL_HOME)
+        setData(response.data)
+      } catch (error) {
+        console.error("Error fetching Data", error)
+      }
+    }
+    fetchData()
   }, []);
-  console.log("outside");
   return (
-    <div className="px-10 h-full">
+    <div className="px-10 md:px-24 lg:px-24 h-full">
       {data ? (
         <>
           <Banner BannerData={data} />
@@ -26,7 +30,8 @@ const Body = () => {
               data?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle
                 ?.restaurants || []
             }
-            className="overflow-x-auto hide-scrollbar px-4"
+            className="overflow-x-auto hide-scrollbar px-4 py-2"
+            noofShimmer = {5}
           />
           {/* Section for normal Restaurants */}
           <RestSection
@@ -36,6 +41,7 @@ const Body = () => {
                 ?.restaurants || []
             }
             className="flex-wrap"
+            noofShimmer = {12}
           />
         </>
       ) : (

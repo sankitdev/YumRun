@@ -10,6 +10,7 @@ import Search from "./Components/Search";
 import Error from "./Components/Error";
 import { Outlet } from "react-router-dom";
 import RestaurantMenu from "./Components/RestaurantMenu";
+import Cart from "./Components/Cart"
 const App = () => {
   return (
     <div className="w-full min-h-screen bg-white dark:bg-black ">
@@ -34,6 +35,10 @@ const appRouter = createBrowserRouter([
       {
         path: "/search",
         element: <Search />,
+      },
+      {
+        path:"/cart",
+        element:<Cart/>
       },
       {
         path: "/restaurant/:id",

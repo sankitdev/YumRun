@@ -1,5 +1,6 @@
 import React from "react";
 import { IMG_URL } from "../constant";
+import Shimmer from "./Shimmer";
 
 function Banner({ BannerData }) {
   const title = BannerData?.data?.cards[0]?.card?.card?.header?.title;
@@ -18,7 +19,7 @@ function Banner({ BannerData }) {
                 alt={items.description}
               />
             ))
-          : "Loading..."}
+          : <Shimmer/>}
       </div>
     </>
   );
