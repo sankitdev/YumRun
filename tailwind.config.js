@@ -10,6 +10,9 @@ module.exports = {
       colors: {
         "red-border": "#ef4444",
       },
+      fontFamily:{
+        custom:["Playwrite AU TAS", `cursive`]
+      }
     },
   },
   plugins: [
