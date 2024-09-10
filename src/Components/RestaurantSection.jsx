@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard from "./RestaurantCards";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 function RestaurantSection({ title, gridList, className,noofShimmer }) {
