@@ -1,23 +1,17 @@
 import Banner from "./Banner";
-import { URL_HOME } from "../constant";
-import axios from "axios";
-import { useEffect, useState } from "react";
+import { URL_HOME } from "../../constant";
 import RestSection from "./RestaurantSection";
-import Shimmer from "./Shimmer";
+import Shimmer from "../Shimmer";
+import useOnline from "../../utils/useOnline";
+import useFetchData from "../../utils/useFetchMenu";
 
 const Body = () => {
-  const [data, setData] = useState(null);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios(URL_HOME)
-        setData(response.data)
-      } catch (error) {
-        console.error("Error fetching Data", error)
-      }
-    }
-    fetchData()
-  }, []);
+  const data = useFetchData(URL_HOME);
+  console.log(data)
+  const online = useOnline()
+  if(!online){
+    return <h1>You are offline</h1>
+  }
   return (
     <div className="px-10 md:px-24 lg:px-24 h-full">
       {data ? (

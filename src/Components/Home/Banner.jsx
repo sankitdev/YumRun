@@ -1,6 +1,6 @@
 import React from "react";
-import { IMG_URL } from "../constant";
-import Shimmer from "./Shimmer";
+import { IMG_URL } from "../../constant";
+import Shimmer from "../Shimmer";
 
 function Banner({ BannerData }) {
   const title = BannerData?.data?.cards[0]?.card?.card?.header?.title;
@@ -8,7 +8,7 @@ function Banner({ BannerData }) {
     BannerData?.data?.cards[0]?.card?.card?.imageGridCards?.info || [];
   return (
     <>
-      <h1 className="dark:text-white text-2xl my-4 font-semibold">{title}</h1>
+      <h1 className="text-2xl my-4 font-semibold">{title}</h1>
       <div className="my-2 w-full h-48 flex gap-10 items-center overflow-x-auto hide-scrollbar">
         {gridList.length > 0
           ? gridList.map((items) => (
