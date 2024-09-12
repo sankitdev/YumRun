@@ -1,20 +1,20 @@
 import { useState, useEffect } from "react";
-import { REST_MENU_URL } from "../constant";
 import axios from "axios";
-const useFetchMenu = (id) => {
-  const [menu, setMenu] = useState(null);
+const useFetchData = (url,id) => {
+  const [data, setData] = useState(null);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`${REST_MENU_URL}${id}`);
-        setMenu(response.data)
+        console.log("trying")
+        const response = await axios.get(`${url}${id}`);
+        setData(response.data)
       } catch (error) {
         console.error("Error fetching menu data:", error);
       }
     };
     fetchData();
-  }, [id]);
-  return menu;
+  }, [url,id]);
+  return data;
 };
 
-export default useFetchMenu;
+export default useFetchData;
