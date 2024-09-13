@@ -1,5 +1,5 @@
 import {useState,useEffect} from "react"
-import Shimmer from "../Shimmer"
+import Shimmer from "../Shimmer/Shimmer"
 const RestaurantMenuBanner = ({ restaurantInfo }) => { 
 try {
   const[loading,setLoading] = useState(true)

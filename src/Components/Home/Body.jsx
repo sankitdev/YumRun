@@ -1,9 +1,9 @@
 import Banner from "./Banner";
 import { URL_HOME } from "../../constant";
 import RestSection from "./RestaurantSection";
-import Shimmer from "../Shimmer";
-import useOnline from "../../utils/useOnline";
-import useFetchData from "../../utils/useFetchMenu";
+import Shimmer from "../Shimmer/Shimmer.jsx";
+import useOnline from "../../utils/useOnline.js";
+import useFetchData from "../../utils/useFetchMenu.js";
 
 const Body = () => {
   const data = useFetchData(URL_HOME);
@@ -16,7 +16,7 @@ const Body = () => {
     <div className="px-10 md:px-24 lg:px-24 h-full">
       {data ? (
         <>
-          <Banner BannerData={data} />
+          <Banner title={data?.data?.cards[0]?.card?.card?.header?.title} gridList={data?.data?.cards[0]?.card?.card?.imageGridCards?.info || []} className="h-48 gap-5"/>
           {/* Section for horizontal Scroll Restaurants */}
           <RestSection
             title={data?.data?.cards[1]?.card?.card?.header?.title}
