@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import MenuCard from "./MenuCards";
 import RestaurantMenuBanner from "./RestaurantMenuBanner";
-import useFetchData from "../../utils/useFetchMenu.js";
+import useFetchData from "../../hooks/useFetchMenu.js";
 import { REST_MENU_URL } from "../../constant.js";
 const RestaurantMenu = () => {
   const { id } = useParams();

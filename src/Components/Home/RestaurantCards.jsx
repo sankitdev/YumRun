@@ -9,7 +9,6 @@ function RestaurantCard({ image, cuisines, locality, name }) {
       <img
         className="h-3/5 w-full object-cover object-center shadow-sm hover:scale-105 transition-all "
         src={`${REST_URL}${image}`}
-        alt=""
       />
       <div className="p-2">
         <h1 className="text-lg font-semibold truncate">{name}</h1>

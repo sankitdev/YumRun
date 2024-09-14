@@ -2,8 +2,8 @@ import Banner from "./Banner";
 import { URL_HOME } from "../../constant";
 import RestSection from "./RestaurantSection";
 import Shimmer from "../Shimmer/Shimmer.jsx";
-import useOnline from "../../utils/useOnline.js";
-import useFetchData from "../../utils/useFetchMenu.js";
+import useOnline from "../../hooks/useOnline.js";
+import useFetchData from "../../hooks/useFetchMenu.js";
 
 const Body = () => {
   const data = useFetchData(URL_HOME);

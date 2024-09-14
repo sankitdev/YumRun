@@ -11,13 +11,17 @@ import { Outlet } from "react-router-dom";
 import RestaurantMenu from "./Components/MenuSection/RestaurantMenu";
 import Cart from "./Components/Cart"
 import "./index.css";
+import { Provider } from "react-redux";
+import store from "./store/store";
 const App = () => {
   return (
     <div className="w-full min-h-screen bg-white dark:bg-slate-800 dark:text-white ">
-      <NavBar />
+     <Provider store={store}>
+     <NavBar />
       <Outlet />
       <DarkModeToggle />
       <Footer />
+     </Provider>
     </div>
   );
 };

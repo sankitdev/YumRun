@@ -1,7 +1,7 @@
 import { IMG_URL } from "../constant"
 import { MdDelete } from "react-icons/md";
 import {useDispatch} from "react-redux"
-import {removeItem} from "../utils/cartSlice.js"
+import {removeItem} from "../store/cartSlice.js"
 const FoodItems = ({name, description, imageId, price})=>{
     const dispatch = useDispatch()
     const deleteItem = (name)=>{
