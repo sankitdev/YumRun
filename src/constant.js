@@ -6,8 +6,10 @@ export const REST_URL =
   "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
 export const REST_MENU_URL =
   "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.1702401&lng=72.8310607000000&restaurantId=";
-export const Search_URL = "https://www.swiggy.com/dapi/restaurants/search/suggest?lat=21.18880&lng=72.82930&str="
-export const PRE_SEARCH = "https://www.swiggy.com/dapi/landing/PRE_SEARCH?lat=21.1702401&lng=72.8310607000000"
+export const Search_URL =
+  "https://www.swiggy.com/dapi/restaurants/search/suggest?lat=21.18880&lng=72.82930&str=";
+export const PRE_SEARCH =
+  "https://www.swiggy.com/dapi/landing/PRE_SEARCH?lat=21.1702401&lng=72.8310607000000";
 // const INPUT_AUTOCOMPLETE =
 //   "https://www.swiggy.com/dapi/misc/place-autocomplete?input=Banglore&types=";
 // const AFTER_SEARCH =
