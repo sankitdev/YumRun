@@ -5,8 +5,6 @@ const useFetchData = (url, id) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log("trying");
-        const response = await fetch(`${url}${id}`);
         const response2 = await fetch(
           `https://yum-backend.onrender.com/api/fetchdata`,
           {
@@ -15,10 +13,7 @@ const useFetchData = (url, id) => {
             body: JSON.stringify({ url: url, id: id }),
           }
         );
-        const finalData = await Promise.race([
-          response.json(),
-          response2.json(),
-        ]);
+        const finalData = await response2.json();
         setData(finalData);
       } catch (error) {
         console.error("Error fetching menu data:", error);
