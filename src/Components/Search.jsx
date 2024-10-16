@@ -1,6 +1,4 @@
 import { useEffect, useState } from "react";
-import axios from "axios";
-// import useFetchMenu from "../utils/useFetchMenu"
 import { PRE_SEARCH } from "../constant.js";
 import Banner from "./Home/Banner.jsx";
 const Search = () => {
@@ -9,10 +7,16 @@ const Search = () => {
   useEffect(() => {
     const fetchSearch = async () => {
       try {
-        const response = await axios.get(PRE_SEARCH);
-        // console.log(response)
-        console.log(Object.values(response.data.data.cards));
-        setData(Object.values(response.data.data.cards));
+        const response = await fetch(
+          `https://yum-backend.onrender.com/api/fetchdata`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ url: PRE_SEARCH }),
+          }
+        );
+        const data = await response.json();
+        setData(Object.values(data.data.cards));
       } catch (error) {
         console.error("Error in Search Component", error);
         return <p>Error Finding Data</p>;
