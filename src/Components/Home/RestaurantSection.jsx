@@ -1,7 +1,7 @@
 import RestaurantCard from "./RestaurantCards";
 import Shimmer from "../Shimmer/Shimmer";
 import { Link } from "react-router-dom";
-function RestaurantSection({ title, gridList, className,noofShimmer }) {
+function RestaurantSection({ title, gridList, className, noofShimmer }) {
   return (
     <>
       <h1 className="dark:text-white text-2xl font-semibold py-4">
@@ -13,19 +13,19 @@ function RestaurantSection({ title, gridList, className,noofShimmer }) {
               .fill()
               .map((_, index) => <Shimmer key={index} />)
           : gridList.map((items) => {
-            const {info} = items 
-            const{id,cloudinaryImageId,cuisines,locality,name} = info 
-            return (
-              <Link to={"/restaurant/" + id} key={id}>
-                <RestaurantCard
-                  image={cloudinaryImageId}
-                  cuisines={cuisines}
-                  locality={locality}
-                  name={name}
-                />
-              </Link>
-            )
-          })}
+              const { info } = items;
+              const { id, cloudinaryImageId, cuisines, locality, name } = info;
+              return (
+                <Link to={"/restaurant/" + id} key={id}>
+                  <RestaurantCard
+                    image={cloudinaryImageId}
+                    cuisines={cuisines}
+                    locality={locality}
+                    name={name}
+                  />
+                </Link>
+              );
+            })}
       </div>
     </>
   );
