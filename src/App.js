@@ -5,7 +5,6 @@ import Body from "./Components/Home/Body";
 import NavBar from "./Components/NavBar";
 import Footer from "./Components/Footer";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import Search from "./Components/Search";
 import Error from "./Components/Error";
 import { Outlet } from "react-router-dom";
 import RestaurantMenu from "./Components/MenuSection/RestaurantMenu";
@@ -13,6 +12,9 @@ import Cart from "./Components/Cart";
 import "./index.css";
 import { Provider } from "react-redux";
 import store from "./store/store";
+import { lazy, Suspense } from "react";
+import Shimmer from "./Components/Shimmer/Shimmer";
+const Search = lazy(() => import("./Components/Search"));
 const App = () => {
   return (
     <div className="w-full min-h-screen bg-white dark:bg-slate-800 dark:text-white ">
@@ -38,7 +40,11 @@ const appRouter = createBrowserRouter([
       },
       {
         path: "/search",
-        element: <Search />,
+        element: (
+          <Suspense fallback={<div>Loading...</div>}>
+            <Search />
+          </Suspense>
+        ),
       },
       {
         path: "/cart",
