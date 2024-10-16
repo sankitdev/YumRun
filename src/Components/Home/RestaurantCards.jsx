@@ -4,7 +4,7 @@ import { REST_URL } from "../../constant";
 function RestaurantCard({ image, cuisines, locality, name }) {
   return (
     <div
-      className={`w-44 md:w-64 lg:w-72 h-60 rounded-lg cursor-pointer overflow-hidden flex-shrink-0 shadow-md hover:scale-95 transition-all duration-300 ease-in-out  `}
+      className={`w-72 md:w-64 lg:w-72 h-60 rounded-lg cursor-pointer overflow-hidden flex-shrink-0 shadow-md hover:scale-95 transition-all duration-300 ease-in-out  `}
     >
       <img
         className="h-3/5 w-full object-cover object-center shadow-sm hover:scale-105 transition-all "
