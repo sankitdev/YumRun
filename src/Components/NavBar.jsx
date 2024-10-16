@@ -3,8 +3,7 @@ import { CiShoppingCart, CiSearch } from "react-icons/ci";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 const NavBar = () => {
-  const cartItems = useSelector((store) => store.cart.items)
-  // console.log(cartItems)
+  const cartItems = useSelector((store) => store.cart.items);
   return (
     <div className="bg-white dark:bg-inherit flex justify-between py-2 px-10 md:px-24 lg:px-24 h-16 items-center sticky top-0 z-10">
       <h1 className="font-bold text-xl font-custom text-orange-500">
@@ -13,12 +12,11 @@ const NavBar = () => {
         </Link>
       </h1>
       <ul className="flex gap-7 text-lg font-medium">
-        <li className="hover:text-orange-500 transition-all duration-300 ease-in-out ">
-          <Link to="/">Home</Link>
-        </li>
-
         <li className="hover:text-orange-500 transition-all duration-300 ease-in-out">
-          <Link to="/search" className="flex items-center space-x-1"> <span> Search</span> <CiSearch className="text-xl " /></Link>
+          <Link to="/search" className="flex items-center space-x-1">
+            {" "}
+            <span> Search</span> <CiSearch className="text-xl " />
+          </Link>
         </li>
         <li className="relative hover:text-orange-500 transition-all duration-300 ease-in-out">
           <Link to="/cart">
