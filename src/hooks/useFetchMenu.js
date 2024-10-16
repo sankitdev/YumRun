@@ -1,19 +1,31 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-const useFetchData = (url,id) => {
-  const [data, setData] = useState(null);
+import preload from "../preload.js";
+const useFetchData = (url, id) => {
+  const [data, setData] = useState(preload);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        console.log("trying")
-        const response = await axios.get(`${url}${id}`);
-        setData(response.data)
+        console.log("trying");
+        const response = await fetch(`${url}${id}`);
+        const response2 = await fetch(
+          `https://yum-backend.onrender.com/api/fetchdata`,
+          {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ url: url, id: id }),
+          }
+        );
+        const finalData = await Promise.race([
+          response.json(),
+          response2.json(),
+        ]);
+        setData(finalData);
       } catch (error) {
         console.error("Error fetching menu data:", error);
       }
     };
     fetchData();
-  }, [url,id]);
+  }, [url, id]);
   return data;
 };
 
